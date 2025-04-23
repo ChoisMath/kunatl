@@ -3,36 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>대인관계 기능(ATL)</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        header { background: #003366; color: white; text-align: center; padding: 20px; }
-        nav { background: #e0e0e0; padding: 10px; text-align: center; }
-        nav a { margin: 0 10px; color: #6faae4; text-decoration: none; font-weight: bold; padding-bottom: 10px;}
-        main { width: 90%; margin: 5%; background: white; padding: 2%; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h2 { color: #003366; }
-        ul { padding-left: 20px; line-height: 1.6; }
-        .quote { font-style: italic; color: #555; margin: 20px 0; }
-        summary{
-            cursor: pointer;
-            font-weight: bold;
-            color: #003366;
-            margin: 10px 0;
-        }
-        details {
-            background: #f9f9f9;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        a {color: #003366;text-decoration: none;}
-        .function {
-            color : #0a5d3d;
-            font-size: 20px;
-            font-weight: bold;
-            margin-left: 3%;
-            top: 50px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -41,17 +12,21 @@
     </header>
     
     <nav>
-        <a href="index.html">홈페이지</a>
-        <a href="communication.html">의사소통</a>
-        <a href="social.html">대인 관계</a>
-        <a href="selfmanagement.html">자기 관리</a>
-        <a href="research.html">조사</a>
-        <a href="thinking.html">사고</a>
+        <div class="nav-inner">
+            <a href="index.html">홈페이지</a>
+            <a href="communication.html">의사소통</a>
+            <a href="social.html">대인 관계</a>
+            <a href="selfmanagement.html">자기 관리</a>
+            <a href="research.html">조사</a>
+            <a href="thinking.html">사고</a>
+        </div>
     </nav>
 
+    <br>
     <a class = "function"> <b> 협력적 기능 </b>  </a>
     <details>
         <summary><b>B.1 - 다른 사람과 효과적으로 작업합니다.</b></summary>
+            <hr>
             <ul>
                 <li><a href="https://drive.google.com/file/d/1HUWSy4BwSsUqx51oijd1p4rTJJQQTvK_/view">B.1.1 - <b>소셜 미디어 네트워크</b>를 적절하게 사용하여 관계를 맺고 발전시킵니다.</a></li>
                 <li><a href="#">B.1.2 - <b>공감</b>을 표합니다.</a></li>

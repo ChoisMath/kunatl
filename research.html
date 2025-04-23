@@ -3,41 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>조사 기능(ATL)</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        header { background: #003366; color: white; text-align: center; padding: 20px; }
-        nav { background: #e0e0e0; padding: 10px; text-align: center; }
-        nav a { margin: 0 10px; color: #6faae4; text-decoration: none; font-weight: bold; padding-bottom: 10px;}
-        main { width: 90%; margin: 5%; background: white; padding: 2%; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h2 { color: #003366; }
-        ul { padding-left: 20px; line-height: 1.6; }
-        .quote { font-style: italic; color: #555; margin: 20px 0; }
-        summary{
-            cursor: pointer;
-            font-weight: bold;
-            color: #003366;
-            margin: 10px 0;
-        }
-        details {
-            background: #f9f9f9;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px 0;
-        }
-        a {color: #003366;text-decoration: none;}
-
-        .function {
-            color : #0a5d3d;
-            font-size: 20px;
-            font-weight: bold;
-            margin-left: 3%;
-            top: 50px;
-        }
-        .underline {
-            text-decoration: underline;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -46,17 +12,21 @@
     </header>
     
     <nav>
-        <a href="index.html">홈페이지</a>
-        <a href="communication.html">의사소통</a>
-        <a href="social.html">대인 관계</a>
-        <a href="selfmanagement.html">자기 관리</a>
-        <a href="research.html">조사</a>
-        <a href="thinking.html">사고</a>
+        <div class="nav-inner">
+            <a href="index.html">홈페이지</a>
+            <a href="communication.html">의사소통</a>
+            <a href="social.html">대인 관계</a>
+            <a href="selfmanagement.html">자기 관리</a>
+            <a href="research.html">조사</a>
+            <a href="thinking.html">사고</a>
+        </div>
     </nav>
-
+    
+    <br>
     <a class= "function">정보 활용 능력</a>
     <details>
         <summary><b>D.1 - 정보를 찾고, 해석하고, 판단하고 창안합니다.</b></summary>
+        <hr>
         <ul>
             <li><a href="#">D.1.1 - <b>데이터</b>를 수집, 기록 및 검증합니다.</a></li>
             <li><a href="#">D.1.2 - 다른 사람에게 <b>정보</b>를 얻고 주기 위해 <b>정보</b>에 접근합니다.</a></li>
@@ -79,6 +49,7 @@
     <a class= "function">매체 문해력</a>
     <details>
         <summary><b>D.2 - 매체를 활용하여 아이디어와 정보를 사용하고 만듭니다.</b></summary>
+        <hr>
         <ul>
             <li><a href="#">D.2.1 - <b>다양한 출처와 미디어</b>(디지털 소셜 미디어, 온라인 네트워크 등)의 정보를 찾고, 조직화하고, 분석하고, 평가하고, 종합하고 윤리적으로 사용합니다.</a></li>
             <li><a href="#">D.2.2 - 사건과 아이디어에 대한 <b>미디어(디지털 소셜 미디어 등)의 해석</b>을 이해했음을 보입니다.</a></li>

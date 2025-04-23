@@ -3,16 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>ATL</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-    header { background: #003366; color: white; text-align: center; padding: 20px; }
-    nav { background: #e0e0e0; padding: 10px; text-align: center; }
-    nav a { margin: 0 10px; color: #6faae4; text-decoration: none; font-weight: bold; padding-bottom: 10px;}
-    main { width: 90%; margin: 5%; background: white; padding: 2%; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h2 { color: #003366; }
-    ul { padding-left: 20px; line-height: 1.6; }
-    .quote { font-style: italic; color: #555; margin: 20px 0; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -21,28 +12,28 @@
   </header>
 
   <nav>
-    <a href="index.html">홈페이지</a>
-    <a href="communication.html">의사소통</a>
-    <a href="social.html">대인 관계</a>
-    <a href="selfmanagement.html">자기 관리</a>
-    <a href="research.html">조사</a>
-    <a href="thinking.html">사고</a>
+    <div class="nav-inner">
+      <a href="index.html">홈페이지</a>
+      <a href="communication.html">의사소통</a>
+      <a href="social.html">대인 관계</a>
+      <a href="selfmanagement.html">자기 관리</a>
+      <a href="research.html">조사</a>
+      <a href="thinking.html">사고</a>
+    </div>
   </nav>
 
   <div class="diagram">
-    <br>
-    <a style="padding:10px 0; margin-left: 5%;">학습 접근 방법 ➡︎ </a>
-    <a href="https://drive.google.com/file/d/1HUWSy4BwSsUqx51oijd1p4rTJJQQTvK_/view" 
-       target="_blank" 
-       style="text-decoration: none; color: #003366; font-weight: bold; bottom: 5px;">
-       ATL 기능 항목 총괄표
-    </a>
-    
-    <br><br> <!-- 줄바꿈 추가 -->
-  
-    <img src="./img/ATL_구조.png" 
-         alt="ATL 영역 다이어그램" 
-         style="width: 90%; height: auto; margin-left: 5%; margin-top: 10px; max-width: 960px;">
+    <div class="diagram-content">
+      <a style="padding:10px 0;">학습 접근 방법 ➡︎ </a>
+      <a href="https://drive.google.com/file/d/1HUWSy4BwSsUqx51oijd1p4rTJJQQTvK_/view" 
+        target="_blank">
+        ATL 기능 항목 총괄표
+      </a>
+    </div>
+
+    <br><br>
+
+    <img src="./img/ATL_구조.png" alt="ATL 영역 다이어그램">
   </div>
 
   <main>
