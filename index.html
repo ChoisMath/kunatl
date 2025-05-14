@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="background-3d"></div>
 
   <header>
     <h1>학습 접근 방법 (ATL)</h1>
@@ -55,7 +56,7 @@
 
     <h2>기능이란 무엇인가?</h2>
     <p class="quote">
-      “기능(Skill)은 정해진 결과를 수행할 수 있는 학습된 역량이자, 적절한 시점에 가장 알맞은 기법을 효과적이고 효율적으로 선택해 실행하는 능력입니다.”
+      "기능(Skill)은 정해진 결과를 수행할 수 있는 학습된 역량이자, 적절한 시점에 가장 알맞은 기법을 효과적이고 효율적으로 선택해 실행하는 능력입니다."
     </p>
     <ul>
       <li>기능은 의도적이고 명확하게 개발되어야 함 (Skills need to be developed explicitly)</li>
@@ -64,6 +65,83 @@
     </ul>
   </main>
 
+  <script>
+    // 3D 배경 도형 생성 및 색상 변화
+    const bg = document.getElementById('background-3d');
+
+    // 정육면체 생성
+    function createCube() {
+      const cube = document.createElement('div');
+      cube.className = 'bg-cube';
+      for (let i = 1; i <= 6; i++) {
+        const face = document.createElement('div');
+        face.className = 'face face' + i;
+        cube.appendChild(face);
+      }
+      bg.appendChild(cube);
+      return cube;
+    }
+
+    // 정이십면체(단순화, 5면만 표현)
+    function createIcosahedron() {
+      const ico = document.createElement('div');
+      ico.className = 'bg-icosahedron';
+      for (let i = 1; i <= 5; i++) {
+        const face = document.createElement('div');
+        face.className = 'face face' + i;
+        ico.appendChild(face);
+      }
+      bg.appendChild(ico);
+      return ico;
+    }
+
+    // 구(원) 생성
+    function createSphere() {
+      const sphere = document.createElement('div');
+      sphere.className = 'bg-sphere';
+      bg.appendChild(sphere);
+      return sphere;
+    }
+
+    // 도형 여러 개 생성
+    const cubes = [createCube(), createCube()];
+    const icos = [createIcosahedron(), createIcosahedron()];
+    const spheres = [createSphere(), createSphere()];
+
+    // 파스텔톤 색상 생성 함수
+    function pastelColor(hue) {
+      return `hsl(${hue}, 70%, 85%)`;
+    }
+
+    // 색상 변화 애니메이션
+    let tick = 0;
+    function animateColors() {
+      tick += 1;
+      // 정육면체 면 색상
+      cubes.forEach((cube, idx) => {
+        const faces = cube.querySelectorAll('.face');
+        faces.forEach((face, i) => {
+          const hue = (tick * 2 + idx * 60 + i * 30) % 360;
+          face.style.background = `linear-gradient(135deg, ${pastelColor(hue)}, ${pastelColor((hue+40)%360)})`;
+        });
+      });
+      // 정이십면체 면 색상
+      icos.forEach((ico, idx) => {
+        const faces = ico.querySelectorAll('.face');
+        faces.forEach((face, i) => {
+          const hue = (tick * 2 + idx * 80 + i * 50) % 360;
+          face.style.borderBottomColor = pastelColor(hue);
+        });
+      });
+      // 구 색상
+      spheres.forEach((sphere, idx) => {
+        const hue = (tick * 2 + idx * 120) % 360;
+        sphere.style.background = `radial-gradient(circle at 30% 30%, ${pastelColor(hue)}, ${pastelColor((hue+60)%360)} 80%)`;
+      });
+      requestAnimationFrame(animateColors);
+    }
+    animateColors();
+  </script>
 
 </body>
 
@@ -72,5 +150,5 @@
     © 2025 KNU-IBEC 교사의 ATL기능에 대한 전략 <br> | 미완성(배껴왔음) |
   </div>
 </footer>
-s
+
 </html>
