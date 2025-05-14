@@ -171,7 +171,7 @@ footer {
 
 /* 정육면체 */
 .bg-cube {
-  width: 80px; height: 80px;
+  width: 300px; height: 300px;
   animation: cube-rotate 12s linear infinite;
 }
 .bg-cube .face {
@@ -197,7 +197,7 @@ footer {
 
 /* 정이십면체(단순화, 3D 효과 강조) */
 .bg-icosahedron {
-  width: 90px; height: 90px;
+  width: 400px; height: 400px;
   animation: icosahedron-rotate 16s linear infinite;
   filter: blur(0.5px);
 }
