@@ -2,12 +2,12 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>사고전략기술</title>
+    <title>사고확장전략</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>사고전략기술</h1>
+        <h1>사고확장전략</h1>
     </header>
     <nav>
         <div class="nav-inner">
@@ -17,23 +17,87 @@
             <a href="selfmanagement.html">자기 관리</a>
             <a href="research.html">조사</a>
             <a href="thinking.html">사고</a>
-            <a href="strategy.html">사고전략기술</a>
+            <a href="strategy.html">사고확장전략</a>
         </div>
     </nav>
     <main class="content-wrapper">
         <br>
         <a class="function"><b>8가지 사고전략기술</b></a>
-        <ul>
-            <li><a href="https://docs.google.com/presentation/d/관점의확장" target="_blank" rel="noopener noreferrer">[관점의 확장]</a></li>
-            <li><a href="https://docs.google.com/presentation/d/메타인지" target="_blank" rel="noopener noreferrer">[메타인지]</a></li>
-            <li><a href="https://docs.google.com/presentation/d/문제해결하기" target="_blank" rel="noopener noreferrer">[문제해결하기]</a></li>
-            <li><a href="https://docs.google.com/presentation/d/비교분석하기" target="_blank" rel="noopener noreferrer">[비교분석하기]</a></li>
-            <li><a href="https://docs.google.com/presentation/d/생성조직하기" target="_blank" rel="noopener noreferrer">[생성조직하기]</a></li>
-            <li><a href="https://docs.google.com/presentation/d/일반화하기" target="_blank" rel="noopener noreferrer">[일반화하기]</a></li>
-            <li><a href="https://docs.google.com/presentation/d/종합하기" target="_blank" rel="noopener noreferrer">[종합하기]</a></li>
-            <li><a href="https://docs.google.com/presentation/d/추론하기" target="_blank" rel="noopener noreferrer">[추론하기]</a></li>
-        </ul>
+        <div style="margin-bottom: 20px;">
+            <input type="text" id="strategyName" placeholder="전략명" style="padding:5px;">
+            <input type="url" id="strategyUrl" placeholder="Google Slides URL" style="padding:5px; width:300px;">
+            <button onclick="addStrategy()" style="padding:5px 10px;">추가</button>
+        </div>
+        <ul id="strategyList"></ul>
     </main>
+    <script>
+    // JSONP 방식으로 CORS 우회
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyrOG5EJh41NzWTAKloqpBfZWBc6w2GcVl7CLXHkNJmZbz7-4xa559ZuMS9SciGsF1Q/exec';
+
+    // JSONP 콜백 함수
+    window.handleResponse = function(data) {
+        if (data.action === 'load') {
+            displayStrategies(data.strategies);
+        } else if (data.action === 'add') {
+            loadStrategies(); // 추가 후 다시 불러오기
+        }
+    };
+
+    function displayStrategies(strategies) {
+        const ul = document.getElementById('strategyList');
+        ul.innerHTML = '';
+        
+        // 사용자 추가 전략 표시
+        if (strategies && strategies.length > 0) {
+            strategies.slice().reverse().forEach(item => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.textContent = `[${item.name}]`;
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+        }
+    }
+
+    function loadStrategies() {
+        // JSONP 요청
+        const script = document.createElement('script');
+        script.src = `${SCRIPT_URL}?action=load&callback=handleResponse`;
+        document.body.appendChild(script);
+        script.onload = () => document.body.removeChild(script);
+    }
+
+    function addStrategy() {
+        const name = document.getElementById('strategyName').value.trim();
+        const url = document.getElementById('strategyUrl').value.trim();
+        
+        if (!name || !url) {
+            alert('전략명과 URL을 모두 입력하세요.');
+            return;
+        }
+        
+        if (!/^https?:\/\/.+/.test(url)) {
+            alert('올바른 URL을 입력하세요.');
+            return;
+        }
+        
+        // JSONP로 데이터 전송
+        const script = document.createElement('script');
+        script.src = `${SCRIPT_URL}?action=add&name=${encodeURIComponent(name)}&url=${encodeURIComponent(url)}&callback=handleResponse`;
+        document.body.appendChild(script);
+        script.onload = () => {
+            document.body.removeChild(script);
+            document.getElementById('strategyName').value = '';
+            document.getElementById('strategyUrl').value = '';
+        };
+    }
+
+    // 페이지 로드시 목록 불러오기
+    window.onload = loadStrategies;
+    </script>
 </body>
 <footer>
     <div class="footer-inner">
